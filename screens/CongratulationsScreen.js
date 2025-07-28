@@ -1,4 +1,4 @@
-import { StatusBar, TouchableOpacity, View, Text, Image } from "react-native";
+import { TouchableOpacity, View, Text, Image } from "react-native";
 import COLORS from "../constants/Colors";
 import { StyleSheet } from "react-native";
 import * as Animatable from "react-native-animatable";
@@ -9,7 +9,12 @@ const AnimatedImage = Animatable.createAnimatableComponent(Image);
 
 const CongratulationsScreen = ({ navigation }) => {
   const onPress = () => {
-    navigation.navigate("CreateGoal");
+    navigation.navigate("MainApp", {
+      screen: "Profile",
+      params: {
+        screen: "CreateGoal",
+      },
+    });
   };
 
   return (

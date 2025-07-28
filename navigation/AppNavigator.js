@@ -11,8 +11,7 @@ import {
   WeightScreen,
 } from "../screens/ProfileDetailsScreen";
 import CongratulationsScreen from "../screens/CongratulationsScreen";
-import CreateGoalScreen from "../screens/CreateGoalScreen";
-import AddGoalDetailsScreen from "../screens/AddGoalDetailsScreen";
+import TabNavigator from "./TabNavigator";
 
 const Stack = createNativeStackNavigator();
 export default function AppNavigator() {
@@ -34,8 +33,7 @@ export default function AppNavigator() {
           name="Congratulations"
           component={CongratulationsScreen}
         />
-        <Stack.Screen name="CreateGoal" component={CreateGoalScreen} />
-        <Stack.Screen name="AddGoalDetails" component={AddGoalDetailsScreen} />
+        <Stack.Screen name="MainApp" component={TabNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
   );
