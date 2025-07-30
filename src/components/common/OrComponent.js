@@ -1,7 +1,7 @@
 import { LinearGradient } from "expo-linear-gradient";
 import { Text, View, StyleSheet } from "react-native";
-import COLORS from "../constants/Colors";
-import theme from "../constants/theme";
+import COLORS from "../../constants/Colors";
+import theme from "../../constants/theme";
 
 export default function OrComponent() {
   return (

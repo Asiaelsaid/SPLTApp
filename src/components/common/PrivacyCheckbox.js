@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
-import COLORS from "../constants/Colors";
-import theme from "../constants/theme";
+import COLORS from "../../constants/Colors";
+import theme from "../../constants/theme";
 
 export default function PrivacyCheckbox({ isChecked, onToggle }) {
   return (

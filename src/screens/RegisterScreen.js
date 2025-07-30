@@ -11,11 +11,11 @@ import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import theme from "../constants/theme";
 import COLORS from "../constants/Colors";
-import SwitchButton from "../components/SwitchButton";
-import InputField from "../components/InputField";
-import OrComponent from "../components/OrComponent";
-import SocialIcon from "../components/SocialIcons";
-import PrivacyCheckbox from "../components/PrivacyCheckbox";
+import SwitchButton from "../components/common/SwitchButton";
+import InputField from "../components/common/InputField";
+import OrComponent from "../components/common/OrComponent";
+import SocialIcon from "../components/common/SocialIcons";
+import PrivacyCheckbox from "../components/common/PrivacyCheckbox";
 
 export default function RegisterScreen({ navigation }) {
   const [isClient, setIsClient] = useState(true);

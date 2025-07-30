@@ -1,7 +1,7 @@
 import { StyleSheet, Text } from "react-native";
-import COLORS from "../constants/Colors";
+import COLORS from "../../constants/Colors";
 import { TouchableOpacity } from "react-native";
-import theme from "../constants/theme";
+import theme from "../../constants/theme";
 
 export default function PrimaryButton({ title, onPress, style, disabled }) {
   return (

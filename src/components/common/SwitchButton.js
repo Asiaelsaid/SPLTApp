@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import theme from "../constants/theme";
+import theme from "../../constants/theme";
 
 const SwitchButton = ({ label, active, onPress }) => (
   <TouchableOpacity onPress={onPress} style={styles.switchItem}>

@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import theme from "../constants/theme";
-import COLORS from "../constants/Colors";
+import theme from "../../constants/theme";
+import COLORS from "../../constants/Colors";
 
 export default function SelectField({ placeholder, value, onChange }) {
   return (

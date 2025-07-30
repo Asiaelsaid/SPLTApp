@@ -4,10 +4,10 @@ import { Ionicons, Feather } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import theme from "../constants/theme";
 import COLORS from "../constants/Colors";
-import SwitchButton from "../components/SwitchButton";
-import InputField from "../components/InputField";
-import OrComponent from "../components/OrComponent";
-import SocialIcon from "../components/SocialIcons";
+import SwitchButton from "../components/common/SwitchButton";
+import InputField from "../components/common/InputField";
+import OrComponent from "../components/common/OrComponent";
+import SocialIcon from "../components/common/SocialIcons";
 
 export default function LoginScreen({ navigation }) {
   const [isClient, setIsClient] = useState(true);

@@ -1,8 +1,8 @@
 import { TextInput, TouchableOpacity, View } from "react-native";
 import { Ionicons, Feather } from "@expo/vector-icons";
-import COLORS from "../constants/Colors";
+import COLORS from "../../constants/Colors";
 import { StyleSheet } from "react-native";
-import theme from "../constants/theme";
+import theme from "../../constants/theme";
 const InputField = ({
   icon,
   placeholder,
