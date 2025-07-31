@@ -1,21 +1,14 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  SafeAreaView,
-} from "react-native";
+import { View, Text, TouchableOpacity, SafeAreaView, StyleSheet } from "react-native";
 import { useState } from "react";
-import { Ionicons } from "@expo/vector-icons";
-import { LinearGradient } from "expo-linear-gradient";
-import theme from "../constants/theme";
-import COLORS from "../constants/Colors";
-import SwitchButton from "../components/common/SwitchButton";
-import InputField from "../components/common/InputField";
-import OrComponent from "../components/common/OrComponent";
-import SocialIcon from "../components/common/SocialIcons";
-import PrivacyCheckbox from "../components/common/PrivacyCheckbox";
+import theme from "../../constants/theme";
+import COLORS from "../../constants/Colors";
+import SwitchButton from "../../components/common/SwitchButton";
+import InputField from "../../components/common/InputField";
+import PrivacyCheckbox from "../../components/common/PrivacyCheckbox";
+import SocialRow from "../../components/auth/SocialRow";
+import OrComponent from "../../components/common/OrComponent";
+import AuthGradientButton from "../../components/auth/AuthGradientButton";
+import FormError from "../../components/auth/FormError";
 
 export default function RegisterScreen({ navigation }) {
   const [isClient, setIsClient] = useState(true);
@@ -34,43 +27,30 @@ export default function RegisterScreen({ navigation }) {
 
   const handleRegister = () => {
     let valid = true;
-
     if (userName.trim() === "") {
       setUserNameError("User Name is required");
       valid = false;
     } else if (userName.trim().toLowerCase() === "taken") {
-      setUserNameError(
-        "This user name is already taken, choose another user name"
-      );
+      setUserNameError("This user name is already taken");
       valid = false;
-    } else {
-      setUserNameError("");
-    }
+    } else setUserNameError("");
 
     if (email.trim() === "") {
       setEmailError("Email is required");
       valid = false;
-    } else {
-      setEmailError("");
-    }
+    } else setEmailError("");
 
     if (password.trim() === "") {
       setPasswordError("Password is required");
       valid = false;
-    } else {
-      setPasswordError("");
-    }
+    } else setPasswordError("");
 
     if (!accepted) {
       setCheckboxError("You must accept our terms");
       valid = false;
-    } else {
-      setCheckboxError("");
-    }
+    } else setCheckboxError("");
 
-    if (valid) {
-      console.log("Register successful");
-    }
+    if (valid) navigation.navigate("Gender");
   };
 
   return (
@@ -106,24 +86,13 @@ export default function RegisterScreen({ navigation }) {
           value={lastName}
           onChangeText={setLastName}
         />
-
         <InputField
           icon="person-outline"
           placeholder="User Name"
           value={userName}
           onChangeText={setUserName}
         />
-        {userNameError ? (
-          <View style={styles.errorContainer}>
-            <Ionicons
-              name="alert-circle"
-              size={16}
-              color={COLORS.error}
-              style={styles.errorIcon}
-            />
-            <Text style={styles.errorText}>{userNameError}</Text>
-          </View>
-        ) : null}
+        <FormError message={userNameError} />
 
         <InputField
           icon="mail-outline"
@@ -131,17 +100,7 @@ export default function RegisterScreen({ navigation }) {
           value={email}
           onChangeText={setEmail}
         />
-        {emailError ? (
-          <View style={styles.errorContainer}>
-            <Ionicons
-              name="alert-circle"
-              size={16}
-              color={COLORS.error}
-              style={styles.errorIcon}
-            />
-            <Text style={styles.errorText}>{emailError}</Text>
-          </View>
-        ) : null}
+        <FormError message={emailError} />
 
         <InputField
           icon="lock-closed-outline"
@@ -152,65 +111,22 @@ export default function RegisterScreen({ navigation }) {
           showPassword={showPassword}
           togglePassword={() => setShowPassword(!showPassword)}
         />
-        {passwordError ? (
-          <View style={styles.errorContainer}>
-            <Ionicons
-              name="alert-circle"
-              size={16}
-              color={COLORS.error}
-              style={styles.errorIcon}
-            />
-            <Text style={styles.errorText}>{passwordError}</Text>
-          </View>
-        ) : null}
+        <FormError message={passwordError} />
 
         <PrivacyCheckbox
           isChecked={accepted}
           onToggle={() => setAccepted(!accepted)}
         />
-        {checkboxError ? (
-          <View style={styles.errorContainer}>
-            <Ionicons
-              name="alert-circle"
-              size={16}
-              color={COLORS.error}
-              style={styles.errorIcon}
-            />
-            <Text style={styles.errorText}>{checkboxError}</Text>
-          </View>
-        ) : null}
+        <FormError message={checkboxError} />
 
-        {/* <TouchableOpacity style={styles.registerButton} onPress={handleRegister}> */}
-        <TouchableOpacity
-          style={styles.registerButton}
-          onPress={() => navigation.navigate("Gender")}
-        >
-          <LinearGradient
-            colors={COLORS.gradient}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            style={styles.gradient}
-          >
-            <Text style={styles.registerText}>Register</Text>
-          </LinearGradient>
-        </TouchableOpacity>
+        <AuthGradientButton
+          title="Register"
+          iconName="person-add"
+          onPress={handleRegister}
+        />
 
         <OrComponent />
-
-        <View style={styles.socialRow}>
-          <SocialIcon
-            imageSource={require("../assets/images/google.png")}
-            backgroundColor={COLORS.text}
-          />
-          <SocialIcon
-            imageSource={require("../assets/images/facebook.png")}
-            backgroundColor={COLORS.text}
-          />
-          <SocialIcon
-            imageSource={require("../assets/images/Apple.png")}
-            backgroundColor={COLORS.text}
-          />
-        </View>
+        <SocialRow />
 
         <TouchableOpacity onPress={() => navigation.navigate("Login")}>
           <Text style={[theme.textStyles.body, styles.footerText]}>
@@ -226,7 +142,7 @@ export default function RegisterScreen({ navigation }) {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: theme.colors.background, 
+    backgroundColor: theme.colors.background,
   },
   container: {
     flex: 1,
