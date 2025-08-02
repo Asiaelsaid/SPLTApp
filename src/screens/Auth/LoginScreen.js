@@ -16,6 +16,8 @@ export default function LoginScreen({ navigation }) {
 
   const handleLogin = () => {
     console.log("Login clicked");
+    navigation.navigate("MainApp", { screen: "Home" });
+
     // TODO: Replace with API call
   };
 
