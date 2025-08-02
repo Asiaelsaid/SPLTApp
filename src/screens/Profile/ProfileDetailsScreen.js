@@ -1,4 +1,4 @@
-import ProfileStep from "../components/ProfileDetails/ProfileStep";
+import ProfileStep from "../../components/ProfileDetails/ProfileStep";
 
 export const GenderScreen = ({ navigation }) => (
   <ProfileStep

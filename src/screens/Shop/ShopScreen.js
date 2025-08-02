@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet } from "react-native";
-import COLORS from "../constants/Colors";
+import COLORS from "../../constants/Colors";
 
-export default function HomeScreen() {
+export default function ShopScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Home Screen</Text>
+      <Text style={styles.text}>Shop Screen</Text>
     </View>
   );
 }
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: COLORS.text,
-    fontFamily: "Roboto_500Medium",
     fontSize: 20,
+    fontWeight: "bold",
   },
 });

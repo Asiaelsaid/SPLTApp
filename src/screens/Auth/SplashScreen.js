@@ -1,6 +1,6 @@
 import { Image, StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import COLORS from "../constants/Colors";
+import COLORS from "../../constants/Colors";
 import { useEffect } from "react";
 
 export default function SplashScreen({ navigation }) {
@@ -17,7 +17,7 @@ export default function SplashScreen({ navigation }) {
       style={styles.container}
     >
       <Image
-        source={require("../assets/images/logo.png")}
+        source={require("../../assets/images/logo.png")}
         style={styles.logo}
         resizeMode="contain"
       />

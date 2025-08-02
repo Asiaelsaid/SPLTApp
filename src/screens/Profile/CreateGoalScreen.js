@@ -8,8 +8,8 @@ import {
   Pressable,
 } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
-import COLORS from "../constants/Colors";
-import theme from "../constants/theme";
+import COLORS from "../../constants/Colors";
+import theme from "../../constants/theme";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
 

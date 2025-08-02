@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import SplashScreen from "../screens/SplashScreen";
+import SplashScreen from "../screens/Auth/SplashScreen";
 import LoginScreen from "../screens/Auth/LoginScreen";
 import RegisterScreen from "../screens/Auth/RegisterScreen";
 import {
@@ -9,8 +9,8 @@ import {
   GenderScreen,
   HeightScreen,
   WeightScreen,
-} from "../screens/ProfileDetailsScreen";
-import CongratulationsScreen from "../screens/CongratulationsScreen";
+} from "../screens/Profile/ProfileDetailsScreen";
+import CongratulationsScreen from "../screens/Profile/CongratulationsScreen";
 import TabNavigator from "./TabNavigator";
 
 const Stack = createNativeStackNavigator();

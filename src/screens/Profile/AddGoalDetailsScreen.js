@@ -11,8 +11,8 @@ import {
 import RNPickerSelect from "react-native-picker-select";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
-import COLORS from "../constants/Colors";
-import theme from "../constants/theme";
+import COLORS from "../../constants/Colors";
+import theme from "../../constants/theme";
 
 const AddGoalDetailsScreen = () => {
   const [currentWeight, setCurrentWeight] = useState("");

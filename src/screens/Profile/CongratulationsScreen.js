@@ -1,8 +1,8 @@
 import { TouchableOpacity, View, Text, Image } from "react-native";
-import COLORS from "../constants/Colors";
 import { StyleSheet } from "react-native";
 import * as Animatable from "react-native-animatable";
-import theme from "../constants/theme";
+import theme from "../../constants/theme";
+import COLORS from "../../constants/Colors";
 import { LinearGradient } from "expo-linear-gradient";
 
 const AnimatedImage = Animatable.createAnimatableComponent(Image);
@@ -23,7 +23,7 @@ const CongratulationsScreen = ({ navigation }) => {
         animation="bounceIn"
         iterationCount="infinite"
         duration={2500}
-        source={require("../assets/images/congratulations.png")}
+        source={require("../../assets/images/congratulations.png")}
         style={styles.image}
         resizeMode="contain"
       />

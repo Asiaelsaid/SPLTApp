@@ -2,11 +2,11 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Feather from "react-native-vector-icons/Feather";
 import COLORS from "../constants/Colors";
-import HomeScreen from "../screens/HomeScreen";
+import HomeScreen from "../screens/Home/HomeScreen";
 import ProfileStack from "./ProfileStack";
-import ShopScreen from "../screens/ShopScreen";
-import TrackScreen from "../screens/TrackScreen";
-import WorkoutsScreen from "../screens/WorkoutsScreen";
+import ShopScreen from "../screens/Shop/ShopScreen";
+import TrackScreen from "../screens/Track/TrackScreen";
+import WorkoutsScreen from "../screens/Workouts/WorkoutsScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -22,6 +22,7 @@ export default function TabNavigator() {
         tabBarShowLabel: true,
         tabBarActiveTintColor: COLORS.text,
         tabBarInactiveTintColor: COLORS.stepInactive,
+        tabBarHideOnKeyboard: true,
         tabBarIcon: ({ color, size }) => {
           let iconName;
           let IconComponent = Ionicons;

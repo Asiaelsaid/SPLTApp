@@ -1,11 +1,10 @@
-
 import { View, Text, StyleSheet } from "react-native";
-import COLORS from "../constants/Colors";
+import COLORS from "../../constants/Colors";
 
-export default function TrackScreen() {
+export default function WorkoutsScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Track Screen</Text>
+      <Text style={styles.text}>Workouts Screen</Text>
     </View>
   );
 }

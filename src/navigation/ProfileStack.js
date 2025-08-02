@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import CreateGoalScreen from "../screens/CreateGoalScreen";
-import AddGoalDetailsScreen from "../screens/AddGoalDetailsScreen";
+import CreateGoalScreen from "../screens/Profile/CreateGoalScreen";
+import AddGoalDetailsScreen from "../screens/Profile/AddGoalDetailsScreen";
 
 const Stack = createNativeStackNavigator();
 

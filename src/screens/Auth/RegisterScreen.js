@@ -50,7 +50,8 @@ export default function RegisterScreen({ navigation }) {
       valid = false;
     } else setCheckboxError("");
 
-    if (valid) navigation.navigate("Gender");
+    // if (valid) navigation.navigate("Gender");
+     navigation.navigate("Gender");
   };
 
   return (
