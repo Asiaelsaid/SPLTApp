@@ -8,8 +8,9 @@ const COLORS = {
   borderColor: "#333",
   error: "#F43636",
   gradient: ["#C58BF2", "#6645AB"],
+  postCardGradient: ['#914ad3ff', '#5a38a3ff'],
   subPrimary: "#9D88C9",
-  stepInactive:"#A8A8A8"
+  stepInactive: "#A8A8A8"
 };
 
 export default COLORS;
