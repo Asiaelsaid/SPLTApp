@@ -7,10 +7,12 @@ const COLORS = {
   placeholdertColor: "#C8C8C8",
   borderColor: "#333",
   error: "#F43636",
-  gradient: ["#C58BF2", "#6645AB"],
-  postCardGradient: ['#914ad3ff', '#5a38a3ff'],
+  gradient: ["#B57FE6", "#6645AB"],
+  postCardGradient: ['#6C4B8D', '#2D1B47'],
   subPrimary: "#9D88C9",
-  stepInactive: "#A8A8A8"
+  stepInactive: "#A8A8A8",
+  gray: "#A8A8A8",
+  progressBarColor:"#E4EAF0"
 };
 
 export default COLORS;

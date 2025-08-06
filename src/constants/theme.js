@@ -7,6 +7,9 @@ export default {
     regular: "Roboto_400Regular",
     medium: "Roboto_500Medium",
     bold: "Roboto_700Bold",
+    rubikRegular: "Rubik_400Regular",
+    rubikMedium: "Rubik_500Medium",
+    rubikBold: "Rubik_700Bold",
   },
 
   textStyles: {

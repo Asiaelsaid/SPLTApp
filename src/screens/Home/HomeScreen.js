@@ -3,6 +3,7 @@ import TopBar from "../../components/common/TopBar";
 import TopUsersList from "../../components/home/TopUsersList"
 import COLORS from '../../constants/Colors';
 import PostCard from '../../components/home/WorkoutPostCard/PostCard';
+import WorkoutDetailsCard from '../../components/home/WorkoutDetailsCard/WorkoutDetailsCard';
 
 
 const HomeScreen = () => {
@@ -16,6 +17,7 @@ const HomeScreen = () => {
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <TopUsersList />
         <PostCard />
+        <WorkoutDetailsCard />
       </ScrollView>
     </View>
   );

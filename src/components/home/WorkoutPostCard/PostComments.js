@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
     likes: { color: 'white', fontSize: 13, marginBottom: 4 },
     comment: { color: 'white', fontSize: 13, marginBottom: 2 },
     bold: { fontWeight: 'bold' },
-    viewAll: { color: '#A8A8A8', fontSize: 13, marginVertical: 4 },
-    date: { color: '#A8A8A8', fontSize: 11, marginTop: 6 },
+    viewAll: { color: theme.colors.gray, fontSize: 13, marginVertical: 4 },
+    date: { color: theme.colors.gray, fontSize: 11, marginTop: 6 },
 });
 
 export default PostComments;
