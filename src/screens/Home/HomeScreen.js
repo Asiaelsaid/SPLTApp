@@ -4,22 +4,29 @@ import TopUsersList from "../../components/home/TopUsersList"
 import COLORS from '../../constants/Colors';
 import PostCard from '../../components/home/WorkoutPostCard/PostCard';
 import WorkoutDetailsCard from '../../components/home/WorkoutDetailsCard/WorkoutDetailsCard';
+import { useState } from 'react';
+import DrawerMenu from '../../components/common/DrawerMenu';
 
 
 const HomeScreen = () => {
+  const [menuVisible, setMenuVisible] = useState(false);
   return (
-    <View style={styles.container}>
-      <TopBar
-        onSearch={() => console.log("Search")}
-        onNotificationPress={() => console.log("Notifications")}
-        onMenuPress={() => console.log("Menu")}
-      />
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <TopUsersList />
-        <PostCard />
-        <WorkoutDetailsCard />
-      </ScrollView>
-    </View>
+    <>
+
+      <View style={styles.container}>
+        <TopBar
+          onSearch={() => console.log("Search")}
+          onNotificationPress={() => console.log("Notifications")}
+          onMenuPress={() => setMenuVisible(true)}
+        />
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
+          <TopUsersList />
+          <PostCard />
+          <WorkoutDetailsCard />
+        </ScrollView>
+      </View>
+      {menuVisible && <DrawerMenu onClose={() => setMenuVisible(false)} />}
+    </>
   );
 };
 
