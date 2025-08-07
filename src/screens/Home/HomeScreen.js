@@ -4,12 +4,10 @@ import TopUsersList from "../../components/home/TopUsersList"
 import COLORS from '../../constants/Colors';
 import PostCard from '../../components/home/WorkoutPostCard/PostCard';
 import WorkoutDetailsCard from '../../components/home/WorkoutDetailsCard/WorkoutDetailsCard';
-import { useState } from 'react';
-import DrawerMenu from '../../components/common/DrawerMenu';
 
 
-const HomeScreen = () => {
-  const [menuVisible, setMenuVisible] = useState(false);
+
+const HomeScreen = ({ openDrawer }) => {
   return (
     <>
 
@@ -17,7 +15,7 @@ const HomeScreen = () => {
         <TopBar
           onSearch={() => console.log("Search")}
           onNotificationPress={() => console.log("Notifications")}
-          onMenuPress={() => setMenuVisible(true)}
+          onMenuPress={openDrawer}
         />
         <ScrollView contentContainerStyle={styles.scrollContainer}>
           <TopUsersList />
@@ -25,7 +23,6 @@ const HomeScreen = () => {
           <WorkoutDetailsCard />
         </ScrollView>
       </View>
-      {menuVisible && <DrawerMenu onClose={() => setMenuVisible(false)} />}
     </>
   );
 };
