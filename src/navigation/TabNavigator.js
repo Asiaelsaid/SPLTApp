@@ -10,6 +10,7 @@ import WorkoutsScreen from "../screens/Workouts/WorkoutsScreen";
 import { useState } from "react";
 import { View } from "react-native";
 import DrawerMenu from "../components/common/DrawerMenu";
+import HomeStack from "./HomeStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -65,7 +66,7 @@ export default function TabNavigator() {
         })}
       >
         <Tab.Screen name="Home" options={{ headerShown: false }}>
-          {() => <HomeScreen openDrawer={toggleDrawer} />}
+          {() => <HomeStack openDrawer={toggleDrawer} />}
         </Tab.Screen>
         <Tab.Screen
           name="Workouts"

@@ -13,6 +13,7 @@ const HomeScreen = ({ openDrawer }) => {
 
       <View style={styles.container}>
         <TopBar
+          variant="home"
           onSearch={() => console.log("Search")}
           onNotificationPress={() => console.log("Notifications")}
           onMenuPress={openDrawer}

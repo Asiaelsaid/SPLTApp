@@ -2,76 +2,115 @@ import {
   View,
   Image,
   StyleSheet,
-  Platform,
-  StatusBar,
-  SafeAreaView,
   TouchableOpacity,
+  Text,
 } from "react-native";
 import { Ionicons, Feather } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import COLORS from "../../constants/Colors";
 
-export default function TopBar({ onSearch, onNotificationPress, onMenuPress }) {
+export default function TopBar(props) {
+  const {
+    variant = "home",
+    onSearch,
+    onNotificationPress,
+    onMenuPress,
+    onBackPress,
+    rightText = "Later",
+    onRightTextPress,
+  } = props;
+
+  const insets = useSafeAreaInsets();
+
+  const renderLeft = () => {
+    if (variant === "home") {
+      return (
+        <TouchableOpacity onPress={onSearch}>
+          <Ionicons name="search" size={24} color={COLORS.text} />
+        </TouchableOpacity>
+      );
+    }
+    return (
+      <TouchableOpacity onPress={onBackPress}>
+        <Ionicons name="arrow-back" size={24} color={COLORS.text} />
+      </TouchableOpacity>
+    );
+  };
+  {/* <TopBar variant="backOnly" onBackPress={() => navigation.goBack()} /> */ }
+  const renderRight = () => {
+    if (variant === "home") {
+      return (
+        <View style={styles.rightRow}>
+          <TouchableOpacity onPress={onNotificationPress} style={styles.mr16}>
+            <Ionicons name="notifications-outline" size={24} color={COLORS.text} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={onMenuPress}>
+            <Feather name="menu" size={24} color={COLORS.text} />
+          </TouchableOpacity>
+        </View>
+      );
+    }
+    if (variant === "backWithText") {
+      return (
+        <TouchableOpacity onPress={onRightTextPress}>
+          <Text style={styles.rightText}>{rightText}</Text>
+        </TouchableOpacity>
+      );
+    }
+    return <View />;
+  };
+
   return (
     <LinearGradient
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 0 }}
       colors={COLORS.gradient}
-      style={styles.topBarWrapper}
+      style={[styles.wrapper, { paddingTop: insets.top + 8 }]}
     >
-      <SafeAreaView>
-        <View style={styles.topBar}>
-          {/* Search Icon */}
-          <TouchableOpacity onPress={onSearch}>
-            <Ionicons name="search" size={24} color={COLORS.text} />
-          </TouchableOpacity>
+      <View style={styles.bar}>
+        <View style={styles.side}>{renderLeft()}</View>
 
-          {/* Logo */}
-          <Image
-            source={require("../../assets/images/splt-logo.png")}
-            style={styles.logo}
-          />
+        <Image
+          source={require("../../assets/images/splt-logo.png")}
+          style={styles.logo}
+        />
 
-          {/* Notifications + Menu */}
-          <View style={styles.rightIcons}>
-            <TouchableOpacity onPress={onNotificationPress}>
-              <Ionicons
-                name="notifications-outline"
-                size={24}
-                color={COLORS.text}
-                style={{ marginRight: 16 }}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={onMenuPress}>
-              <Feather name="menu" size={24} color={COLORS.text} />
-            </TouchableOpacity>
-          </View>
+        <View style={[styles.side, { alignItems: "flex-end" }]}>
+          {renderRight()}
         </View>
-      </SafeAreaView>
+      </View>
     </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
-  topBarWrapper: {
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 44,
+  wrapper: {
     paddingHorizontal: 16,
-    paddingTop: 30,
-    paddingBottom: 20,
+    paddingBottom: 16,
   },
-  topBar: {
+  bar: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
+  },
+  side: {
+    flex: 1,
+    justifyContent: "flex-start",
   },
   logo: {
     width: 80,
     height: 26,
     resizeMode: "contain",
-    marginLeft: 20,
+    marginHorizontal: 12,
   },
-  rightIcons: {
+  rightRow: {
     flexDirection: "row",
     alignItems: "center",
+  },
+  mr16: { marginRight: 16 },
+  rightText: {
+    fontSize: 16,
+    color: COLORS.text,
+    fontWeight: "600",
   },
 });

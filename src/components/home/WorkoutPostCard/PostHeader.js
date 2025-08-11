@@ -3,8 +3,10 @@ import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import theme from '../../../constants/theme';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
 
 const PostHeader = ({ userName, avatar }) => {
+    const navigation = useNavigation()
     return (
         <LinearGradient
             colors={theme.colors.postCardGradient}
@@ -17,7 +19,7 @@ const PostHeader = ({ userName, avatar }) => {
                 <Text style={styles.userName}>{userName}</Text>
             </View>
             <View style={styles.right}>
-                <TouchableOpacity style={styles.workoutBtn}>
+                <TouchableOpacity style={styles.workoutBtn} onPress={() => navigation.navigate('WorkoutDetails')}>
                     <Text style={styles.workoutText}>View Workout</Text>
                 </TouchableOpacity>
                 <MaterialIcons name="more-vert" size={23} color="white" style={{ marginLeft: 10 }} />
